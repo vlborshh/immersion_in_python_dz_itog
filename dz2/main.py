@@ -11,9 +11,8 @@ logging.basicConfig(filename='Треугольник.log', filemode='w', encodin
 logger = logging.getLogger(__name__)
 
 def triangle(a: str, b: str, c : str) -> None:
-    #a, b, c = input('Введите сторону a: '), input('Введите сторону b: '), input('Введите сторону c: ')
     if not (a.isdigit() and b.isdigit() and c.isdigit()):
-        logger.error(f'Имеем: A = {a} B = {b} C = {c} - сторонами треугольника должны быть только цифры')
+        logger.info(f'Имеем: A = {a} B = {b} C = {c} - сторонами треугольника должны быть только цифры')
     else:
         a, b, c = int(a), int(b), int(c)
         if a + b < c or a + c < b or b + c < a:
@@ -30,5 +29,4 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Проверка на существование треугольника')
     parser.add_argument('sides_triangle', nargs=3, type=str, help='Вводится сторона А, B, C')
     args = parser.parse_args()
-    # print(args.abc[0], args.abc[1], args.abc[2])
     triangle(args.sides_triangle[0], args.sides_triangle[1], args.sides_triangle[2])
