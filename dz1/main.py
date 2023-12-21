@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 def check_date(date_to_prove):
 
     day, month, year = date_to_prove.split('.')
-    if not (day.isdigit() or month.isdigit() or year.isdigit()):
+    if not day.isdigit() or not month.isdigit() or not year.isdigit():
         logger.error(f'В {date_to_prove} должны быть только цифры')
         return False
 
